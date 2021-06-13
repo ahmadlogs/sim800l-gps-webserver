@@ -73,7 +73,7 @@ int sendGpsToServer()
       float altitude;
       unsigned long date, time, speed, satellites;
   
-      latitude = String(gps.location.lng(), 6); // Latitude in degrees (double)
+      latitude = String(gps.location.lat(), 6); // Latitude in degrees (double)
       longitude = String(gps.location.lng(), 6); // Longitude in degrees (double)
       altitude = gps.altitude.meters(); // Altitude in meters (double)
       date = gps.date.value(); // Raw date in DDMMYY format (u32)
