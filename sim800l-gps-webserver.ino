@@ -61,6 +61,7 @@ int sendGpsToServer()
       while (neogps.available()){
         if (gps.encode(neogps.read())){
           newData = true;
+          break;
         }
       }
     }
