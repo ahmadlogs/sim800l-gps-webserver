@@ -11,7 +11,7 @@ echo $lng;
 
 
 $sql = "INSERT INTO tbl_gps(lat,lng,created_date) 
-	VALUES('".$lng."','".$lat."','".date("Y-m-d H:i:s")."')";
+	VALUES('".$lat."','".$lng."','".date("Y-m-d H:i:s")."')";
 
 if($db->query($sql) === FALSE)
 	{ echo "Error: " . $sql . "<br>" . $db->error; }
