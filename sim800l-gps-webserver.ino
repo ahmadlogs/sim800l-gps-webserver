@@ -165,6 +165,44 @@ int8_t sendATcommand(char* ATcommand, char* expected_answer, unsigned int timeou
   return answer;
 }
 
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//boolean sendATcommand(String expected_answer="OK", unsigned int timeout=2000) //uncomment if syntax error (arduino)
+/*
+boolean sendATcommand(String ATcommand, String expected_answer, unsigned int timeout) //uncomment if syntax error (esp8266)
+{
+  uint8_t x=0, answer=0;
+  String response;
+  unsigned long previous;
+    
+  //Clean the input buffer
+  while( SIM800.available() > 0) SIM800.read();
+  sim800L.println(ATcommand);
+  
+  //NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  previous = millis();
+  do{
+    //if data in UART INPUT BUFFER, reads it
+    if(SIM800.available() != 0){
+        char c = SIM800.read();
+        response.concat(c);
+        x++;
+        //checks if the (response == expected_answer)
+        if(response.indexOf(expected_answer) > 0){
+            answer = 1;
+        }
+    }
+  }while((answer == 0) && ((millis() - previous) < timeout));
+  //NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  
+  Serial.println(response);
+  return answer;
+  
+} 
+*/
+//-----------------------------------------------------------------------------------------------------------------------------
+
 //AT+CFUN=1
 //AT+CGATT=1
 //AT+SAPBR=3,1,"Contype","GPRS"
